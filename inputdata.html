@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>employee data</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="salaryslip.css">
+
+    <body>
+        <div class="container">
+            <form class="mt-5">
+                <div class="form-group row">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label">Employee Name</label>
+                    <div class="col-sm-10">
+                        <input type="Employee Name" class="form-control" id="colFormLabelSm" placeholder="Employee Name" data-bind="value: viewModel.data.employee_name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label">Designation</label>
+                    <div class="col-sm-10">
+                        <input type="Designation" class="form-control" id="colFormLabel" placeholder="Designation" data-bind="value: viewModel.data.designation">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="colFormLabelLg" class="col-sm-2 col-form-label">Date of Joining</label>
+                    <div class="col-sm-10">
+                        <input type="Date of Joining" class="form-control" id="colFormLabelLg" placeholder="Date of Joining" data-bind="value: viewModel.data.date_of_joining">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="colFormLabelLg" class="col-sm-2 col-form-label">Pay Period</label>
+                    <div class="col-sm-10">
+                        <input type="Pay Period" class="form-control " id="colFormLabelLg" placeholder="Pay Period" data-bind="value: viewModel.data.pay_period">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="colFormLabelLg" class="col-sm-2 col-form-label">Pay Date</label>
+                    <div class="col-sm-10">
+                        <input type="Pay Date" class="form-control " id="colFormLabelLg" placeholder="Pay Date" data-bind="value: viewModel.data.pay_date">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="colFormLabelLg" class="col-sm-2 col-form-label">PF A/C Number</label>
+                    <div class="col-sm-10">
+                        <input type="PF A/C Number" class="form-control " id="colFormLabelLg" placeholder="PF A/C Number" data-bind="value: viewModel.data.pay_acc_number">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="colFormLabelLg" class="col-sm-2 col-form-label">UAN Number
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="UAN Number" class="form-control " id="colFormLabelLg" placeholder="UAN Number" data-bind="value: viewModel.data.uan_number">
+                    </div>
+                </div>
+
+
+
+
+                <div class="row mt-5">
+                    <div class="col">
+
+                        <div class="form-group row">
+                            <label for="colFormLabelSm" class="col-sm-2 col-form-label">Earning Type</label>
+                            <div class="col-sm-10">
+                                <input type="Earning Type" class="form-control" id="colFormLabelSm" placeholder="Earning Type" data-bind="value: viewModel.data.earning_type">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="colFormLabelSm" class="col-sm-2 col-form-label">Earning Value</label>
+                            <div class="col-sm-10">
+                                <input type="Earning Value" class="form-control" id="colFormLabelSm" placeholder=" Earning Value" data-bind="value: viewModel.data.earning_value">
+                            </div>
+                        </div>
+
+                        <center>
+                            <button type="submit" class="btn btn-success mt-3" data-bind="click: viewModel.clickHandler.AddEarningBttonIsClicked">Add</button>
+                        </center>
+
+
+
+                    </div>
+                    <div class="col">
+                        <table class="table mb-0">
+                            <thead>
+                                <th> Earning type</th>
+                                <th> Earning value</th>
+
+                                <th style="text-align: right;"> button</th>
+                            </thead>
+                            <tbody data-bind="foreach: viewModel.data.earning">
+                                <tr>
+                                    <td data-bind="text: $data.Earning_type"></td>
+                                    <td data-bind="text: $data.Earning_value"></td>
+
+                                    <td><button class="btn-sm float-right btn btn-danger" data-bind="click: viewModel.clickHandler.removeEarning.bind($root, $data)">remove</button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+
+                <div class="row mt-5">
+                    <div class="col">
+
+                        <div class="form-group row">
+                            <label for="colFormLabelSm" class="col-sm-2 col-form-label">Deduction Type</label>
+                            <div class="col-sm-10">
+                                <input type="Deduction Type" class="form-control" id="colFormLabelSm" placeholder="Deduction Type" data-bind="value: viewModel.data.deduction_type">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="colFormLabelSm" class="col-sm-2 col-form-label">Deduction Value</label>
+                            <div class="col-sm-10">
+                                <input type="Deduction Value" class="form-control" id="colFormLabelSm" placeholder=" Deduction Value" data-bind="value: viewModel.data.deduction_value">
+                            </div>
+                        </div>
+
+                        <center>
+                            <button type="submit" class="btn btn-success mt-3" data-bind="click: viewModel.clickHandler.AddDeductionBttonIsClicked">Add</button>
+                        </center>
+
+
+
+                    </div>
+                    <div class="col">
+                        <table class="table mb-0">
+                            <thead>
+                                <th> Deduction type</th>
+                                <th> Deduction value</th>
+
+                                <th style="text-align: right;"> button</th>
+                            </thead>
+                            <tbody data-bind="foreach: viewModel.data.deduction">
+                                <tr>
+                                    <td data-bind="text: $data.Deduction_type"></td>
+                                    <td data-bind="text: $data.Deduction_value"></td>
+
+                                    <td><button class="btn-sm float-right btn btn-danger" data-bind="click: viewModel.clickHandler.removeDeduction.bind($root, $data)">remove</button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+
+                <div class="row mt-5 mb-5">
+                    <div class="col">
+
+                        <div class="form-group row">
+                            <label for="colFormLabelSm" class="col-sm-2 col-form-label">Reimburshment Type</label>
+                            <div class="col-sm-10">
+                                <input type="Reimburshment Type" class="form-control" id="colFormLabelSm" placeholder="Reimburshment Type" data-bind="value: viewModel.data.reimburshment_type">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="colFormLabelSm" class="col-sm-2 col-form-label">Reimburshment Value</label>
+                            <div class="col-sm-10">
+                                <input type="Reimburshment Value" class="form-control" id="colFormLabelSm" placeholder=" Reimburshment Value" data-bind="value: viewModel.data.reimburshment_value">
+                            </div>
+                        </div>
+
+                        <center>
+                            <button type="submit" class="btn btn-success mt-3" data-bind="click: viewModel.clickHandler.AddReimburshmentBttonIsClicked">Add</button>
+                        </center>
+
+
+
+                    </div>
+                    <div class="col">
+                        <table class="table mb-0">
+                            <thead>
+                                <th> Reimburshment type</th>
+                                <th> Reimburshment value</th>
+
+                                <th style="text-align: right;"> button</th>
+                            </thead>
+                            <tbody data-bind="foreach: viewModel.data.reimburshment">
+                                <tr>
+                                    <td data-bind="text: $data.Reimburshment_type"></td>
+                                    <td data-bind="text: $data.Reimburshment_value"></td>
+
+                                    <td><button class="btn-sm float-right btn btn-danger" data-bind="click: viewModel.clickHandler.removeReimburshment.bind($root, $data)">remove</button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+                <div class="form-group row">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label">Pay Days</label>
+                    <div class="col-sm-10">
+                        <input type="Pay Days" class="form-control" id="colFormLabelSm" placeholder="Pay Days" data-bind="value: viewModel.data.paid_days">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label">LOP Days</label>
+                    <div class="col-sm-10">
+                        <input type="LOP Days" class="form-control" id="colFormLabelSm" placeholder="LOP Days" data-bind="value: viewModel.data.lop_days">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label">Currency</label>
+                    <div class="col-sm-10">
+                        <select class="form-control " name="Currency" id="colFormLabelSm" data-bind="
+                        options: viewModel.data.currencyList,
+                        selectedOptions: viewModel.data.selectedCurrency,
+                        optionsCaption: 'Select...'">
+          </select>
+                    </div>
+
+
+
+                </div>
+
+                <center>
+                    <button type="submit" class="btn btn-success mt-3" data-bind="click: viewModel.clickHandler.onSaveButtonClicked">submit</button>
+                </center>
+
+
+            </form>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script type="text/javascript" src="numberToWords.min.js"></script>
+        <script src="./salaryslip.js"></script>
+
+
+
+
+
+
+    </body>
+
+
+</html>

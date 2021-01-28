@@ -1,0 +1,37 @@
+.bg_color_grey {
+    background-color: #f0f0f0;
+}
+
+.txt_color_green {
+    color: #32cd32;
+}
+
+p {
+    font-size: 17px;
+    font-weight: 500px !important;
+}
+
+.padding_10 {
+    padding: 10px;
+}
+
+.width_300 {
+    width: 300px !important;
+}
+
+.font_size_35 {
+    font-size: 30px;
+}
+
+.font_size_25 {
+    font-size: 20px;
+}
+
+.font_size_17 {
+    font-size: 17px;
+}
+
+.text_color_black {
+    color: black;
+    font-weight: 500;
+}

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>print employee data</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="salaryslip.css">
+
+    <body>
+        <div class="container-fluid">
+
+            <div class="container" id="pdfgenerate">
+                <h3 class="mt-3">Zylker Corporation</h3>
+                <p>588, Estancia Chennai Tamil Nadu 600021 India</p>
+                <hr>
+                <h4>Payslip for the month of June, 2020</h4>
+                <h4>Employee Pay Summary</h4>
+                <div class="row">
+                    <div class="col-3">
+                        <p class="text-muted mt-3">Employee Name </p>
+                        <p class="text-muted"> Designation </p>
+                        <p class="text-muted">Date of Joining </p>
+                        <p class="text-muted">Pay Period </p>
+                        <p class="text-muted">Pay Date </p>
+                        <p class="text-muted">PF A/C Number </p>
+                        <p class="text-muted mb-4">UAN Number </p>
+
+
+                    </div>
+                    <div class="col-3">
+                        <p class="mt-3">:
+                            <span class="text_color_black text-capitalize" data-bind="text: viewModel.data.employee_name">
+                        </span> </p>
+
+                        <p>:
+                            <span class="text_color_black text-capitalize" data-bind="text: viewModel.data.designation">
+                        </span></p>
+
+                        <p>:
+                            <span class="text_color_black text-capitalize" data-bind="text: viewModel.data.date_of_joining">
+                        </span> </p>
+
+                        <p>:
+                            <span class="text_color_black text-capitalize" data-bind="text: viewModel.data.pay_period">
+                        </span> </p>
+
+                        <p>:
+                            <span class="text_color_black text-capitalize" data-bind="text: viewModel.data.pay_date">
+                        </span></p>
+
+                        <p>:
+                            <span class="text_color_black text-capitalize" data-bind="text: viewModel.data.pay_acc_number">
+                        </span> </p>
+
+                        <p>:
+                            <span class="text_color_black text-capitalize" data-bind="text: viewModel.data.uan_number">
+                    </span> </p>
+
+
+                    </div>
+                    <div class="col-6">
+                        <center>
+                            <div class="card width_300">
+                                <center>
+                                    <p class="text-muted text_color_black text-capitalize mt-2">Employee Net Pay</p>
+                                    <h1 class="txt_color_green"><span data-bind="text: viewModel.data.selectedCurrency"></span><span data-bind="text: viewModel.data.net_payable"></span></h1>
+                                    <p class="text-muted">Paid Days : <span data-bind="text: viewModel.data.paid_days"></span> | LOP Days : <span data-bind="text: viewModel.data.lop_days"></span></p>
+
+                                </center>
+
+
+
+
+                            </div>
+                        </center>
+
+
+                    </div>
+
+
+                </div>
+
+                <hr>
+
+                <div class="row bg_color_grey mt-3 padding_10">
+                    <div class="col">
+
+                        <div class="row">
+                            <div class="col-6">
+                                <h4 class="font_size_25">EARNINGS </h4>
+                            </div>
+                            <div class="col-3">
+                                <h4 class="font_size_25">AMOUNT</h4>
+
+                            </div>
+                            <div class="col-3">
+                                <h4 class="font_size_25">CURRENCY</h4>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-6">
+                                <h4 class="font_size_25">DEDUCTIONS</h4>
+
+                            </div>
+                            <div class="col-3">
+                                <h4 class="font_size_25">AMOUNT</h4>
+
+                            </div>
+                            <div class="col-3">
+                                <h4 class="font_size_25">CURRENCY</h4>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col">
+                        <div class="row" data-bind="foreach: viewModel.data.earning">
+                            <div class="col-6">
+
+                                <p class="text_color_black text-capitalize" data-bind="text: $data.Earning_type"></p>
+                            </div>
+                            <div class="col-3">
+
+                                <p class="text_color_black text-capitalize" data-bind="text: $data.Earning_value"></p>
+
+                            </div>
+                            <div class="col-3">
+                                <p class="text_color_black text-capitalize">
+                                    <span data-bind="text: viewModel.data.selectedCurrency">
+                                </span> </p>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row" data-bind="foreach: viewModel.data.deduction">
+                            <div class="col-6">
+                                <p class="text_color_black text-capitalize" data-bind="text: $data.Deduction_type"> </p>
+
+
+                            </div>
+                            <div class="col-3">
+                                <p class="text_color_black text-capitalize" data-bind="text: $data.Deduction_value">
+                                </p>
+
+
+
+                            </div>
+                            <div class="col-3">
+                                <p class="text_color_black text-capitalize">
+                                    <span data-bind="text: viewModel.data.selectedCurrency">
+                                </span> </p>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row mb-5">
+
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-6">
+                                <h6 class="font_size_17">Gross Earnings
+                                </h6>
+
+                            </div>
+                            <div class="col">
+                                <h6 class="font_size_17">
+                                    <span data-bind="text: viewModel.data.gross_earning">
+                                </span></h6>
+                            </div>
+                            <div class="col-3">
+                                <p class="text_color_black text-capitalize">
+                                    <span data-bind="text: viewModel.data.selectedCurrency">
+                                </span> </p>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-6">
+                                <h6 class="font_size_17">Total Deductions</h6>
+                            </div>
+                            <div class="col">
+                                <h6 class="font_size_17">
+                                    <span data-bind="text: viewModel.data.total_deduction">
+                                </span></h6>
+
+                            </div>
+                            <div class="col-3">
+                                <p class="text_color_black text-capitalize">
+                                    <span data-bind="text: viewModel.data.selectedCurrency">
+                                </span> </p>
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row bg_color_grey padding_10">
+                    <div class="col-9">
+                        <h4 class="font_size_25">REIMBURSEMENTS</h4>
+                    </div>
+
+                    <div class="col">
+                        <h4 class="font_size_25">AMOUNT</h4>
+                    </div>
+                    <div class="col">
+                        <h4 class="font_size_25">CURRENCY</h4>
+                    </div>
+
+                </div>
+
+                <div class="row mt-4" data-bind="foreach: viewModel.data.reimburshment">
+                    <div class="col-9">
+                        <p class="text_color_black text-capitalize" data-bind="text: $data.Reimburshment_type"> </p>
+
+
+                    </div>
+
+                    <div class="col">
+                        <p class="text_color_black text-capitalize" data-bind="text: $data.Reimburshment_value">
+                        </p>
+
+                    </div>
+                    <div class="col">
+                        <p class="text_color_black text-capitalize">
+                            <span data-bind="text: viewModel.data.selectedCurrency">
+                            </span> </p>
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="row mb-5">
+
+                    <div class="col">
+                        <h6 class="font_size_17">Total Reimbursement</h6>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-6"></div>
+                            <div class="col-3">
+                                <h6 class="font_size_17">
+                                    <span data-bind="text: viewModel.data.total_reimburshment">
+                                </span></h6>
+                            </div>
+                            <div class="col-3">
+                                <p class="text_color_black text-capitalize">
+                                    <span data-bind="text: viewModel.data.selectedCurrency">
+                                </span> </p>
+
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+
+                <div class="bg_color_grey padding_10">
+                    <h1 class="font_size_35">Total Net Payable <span data-bind="text: viewModel.data.selectedCurrency"> </span><span data-bind="text: viewModel.data.net_payable"></span> <span class="font_size_17">( <span class="text-capitalize" data-bind="text: viewModel.data.net_payable_inwords"> </span>                        Only ) </span>
+                    </h1>
+                </div>
+
+                <p class="text-muted">Total Net Payable= ((Gross Earnings - Total Deductions + Reimbursements) </p>
+
+                <center>
+                    <p class="text-muted mt-4">-This is system generated payslip- </p>
+                </center>
+
+
+            </div>
+        </div>
+        <center>
+            <button class="btn btn-primary" data-bind="click: viewModel.clickHandler.generatePdf">print</button>
+        </center>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js" integrity="sha512-pdCVFUWsxl1A4g0uV6fyJ3nrnTGeWnZN2Tl/56j45UvZ1OMdm9CIbctuIHj+yBIRTUUyv6I9+OivXj4i0LPEYA==" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script type="text/javascript" src="numberToWords.min.js"></script>
+        <script src="./salaryslip.js"></script>
+
+
+
+
+
+    </body>
+
+
+</html>
