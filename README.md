@@ -1,2 +1,2 @@
 # Salary_slip_generater
-put required field and generate salary slip
+You have to fill employee details, it will give you salary slip's pdf 
